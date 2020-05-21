@@ -2,6 +2,8 @@
 
 Project Description: https://docs.google.com/document/d/1EQvXDNbjcvZ2WQ3u75Oawy8u6oLVJyL3waVuFkfI5rs/edit?usp=sharing
 
+Project Design: https://docs.google.com/document/d/13TuXv8mqrMZKvhlVNB4Mp3UOdEslC7jaN0X7R7LFym4/edit?usp=sharing
+
 ### State the problem you are trying to solve
 People want to speak foreign languages quickly. 
 Many services that teach foreign languages say that memorization does not work, and tout their alternatives. But in most languages, the most common 1000 words make up the vast majority of what people say, allowing people to fill in the blanks. The problem isn’t memorization, but that it has been done wrong. 
