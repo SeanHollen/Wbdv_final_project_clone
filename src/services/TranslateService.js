@@ -6,14 +6,14 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const languageTranslator = new LanguageTranslatorV3({
   version: '2018-05-01',
   authenticator: new IamAuthenticator({
-    apikey: '{apikey}',
+    apikey: 'nEqUpV4HFIX7Sy-enSxWqIUriXtDJAHeK2TFt8CL4-6O',
   }),
-  url: '{url}',
+  url: 'https://api.us-south.language-translator.watson.cloud.ibm.com/instances/78e6c599-229d-42d5-98ca-5449261008fe/v3/translate?version=2018-05-01',
 });
 
 const translateParams = {
   text: 'Hello',
-  modelId: 'en-es',
+  modelId: 'en-fr',
 };
 
 languageTranslator.translate(translateParams)

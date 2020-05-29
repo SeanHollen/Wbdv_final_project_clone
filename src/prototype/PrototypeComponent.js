@@ -1,8 +1,9 @@
 import React from "react";
+import translator from "../services/TranslateService";
 
 class PrototypeComponent extends React.Component {
   state = {
-    search: "",
+    search: "Hello",
   }
   render() {
     return (
@@ -13,19 +14,34 @@ class PrototypeComponent extends React.Component {
             onChange={(event) => this.setState({
               search: event.target.value
             })}></input>
-          <button 
-          onClick={
-            () => this.query(this.state.search)}>
+          <button
+            onClick={
+              () => this.query(this.state.search)}>
             Add Course
         </button>
+          <p>result</p>
         </div>
       </div>
     )
   }
+
   query(search) {
-    console.log(search); 
+    translator.languageTranslator.translate({
+      text: 'Hello',
+      modelId: 'en-fr',
+    })
+      .then(translationResult => {
+        console.log(JSON.stringify(translationResult, null, 2));
+      })
+      .catch(err => {
+        console.log('error:', err);
+      });
+
   }
+
+
 }
+
 
 
 
