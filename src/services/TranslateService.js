@@ -23,3 +23,8 @@ languageTranslator.translate(translateParams)
   .catch(err => {
     console.log('error:', err);
   });
+
+  export default {
+    languageTranslator
+  }
+  

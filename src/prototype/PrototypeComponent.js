@@ -16,7 +16,7 @@ class PrototypeComponent extends React.Component {
             })}></input>
           <button
             onClick={
-              () => this.query(this.state.search)}>
+              () => this.doQuery(this.state.search)}>
             Add Course
         </button>
           <p>result</p>
@@ -25,7 +25,7 @@ class PrototypeComponent extends React.Component {
     )
   }
 
-  query(search) {
+  doQuery(search) {
     translator.languageTranslator.translate({
       text: 'Hello',
       modelId: 'en-fr',
@@ -36,7 +36,6 @@ class PrototypeComponent extends React.Component {
       .catch(err => {
         console.log('error:', err);
       });
-
   }
 
 
