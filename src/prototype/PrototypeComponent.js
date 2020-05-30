@@ -1,9 +1,12 @@
 import React from "react";
 import translator from "../services/TranslateService";
+import translateService from "../services/TranslateService";
+
 
 class PrototypeComponent extends React.Component {
   state = {
     search: "Hello",
+    result: ""
   }
   render() {
     return (
@@ -19,26 +22,22 @@ class PrototypeComponent extends React.Component {
               () => this.doQuery(this.state.search)}>
             Add Course
         </button>
-          <p>result</p>
+          <p>{this.state.result}</p>
         </div>
       </div>
     )
   }
 
   doQuery(search) {
-    translator.languageTranslator.translate({
-      text: 'Hello',
-      modelId: 'en-fr',
-    })
-      .then(translationResult => {
-        console.log(JSON.stringify(translationResult, null, 2));
+    const text = translateService.translateFrench(search)
+      .then(res => {
+        const text = res.responseData.translatedText
+        console.log(text)
+        this.setState({result: text})
       })
-      .catch(err => {
-        console.log('error:', err);
-      });
+    return text
+    
   }
-
-
 }
 
 
