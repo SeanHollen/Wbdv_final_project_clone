@@ -8,12 +8,12 @@ export default class FlashCardComponent extends React.Component {
 	}
 
 	flip = () =>
-    this.setState({flipped: !this.state.flipped})
+		this.setState({ flipped: !this.state.flipped })
 
 	render() {
 		return (
 			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
-				<div className="card" onClick={() => this.flip()}>
+				<div className="card">
 					<div className="card-body">
 						<h2 className="card-title">
 							{
@@ -28,10 +28,15 @@ export default class FlashCardComponent extends React.Component {
 						<span>
 							{
 								!this.props.editing &&
-								<i
-									className="btn btn-primary fa fa-retweet"
-									onClick={() => this.flip()}>
-								</i>
+								<span>
+									<i
+										className="btn btn-primary fa fa-retweet"
+										onClick={() => this.flip()}>
+									</i>
+									<i
+										className="btn btn-primary fa fa-volume-up">
+									</i>
+								</span>
 							}
 							{
 								this.props.editing &&
