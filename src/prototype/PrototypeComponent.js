@@ -20,7 +20,7 @@ class PrototypeComponent extends React.Component {
           <button
             onClick={
               () => this.doQuery(this.state.search)}>
-            Add Course
+            Translate
         </button>
           <p>{this.state.result}</p>
         </div>
