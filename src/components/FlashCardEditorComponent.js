@@ -25,6 +25,7 @@ export default class FlashCardEditorComponent extends React.Component {
 			_id: Math.floor(Math.random() * 301)
 		}
 		this.props.addCard(card)
+		this.props.setCreating(false)
 	}
 
 	render() {
