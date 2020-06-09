@@ -1,5 +1,6 @@
 import React from "react";
 import FlashCardComponent from "../components/FlashCardComponent";
+import FlashCardEditorComponent from "../components/FlashCardEditorComponent";
 
 class DeckContainer extends React.Component {
 
@@ -18,6 +19,11 @@ class DeckContainer extends React.Component {
 	deleteCard = (id) =>
 		this.setState(prevState => ({
 			cards: prevState.cards.filter(card => card._id !== id)
+		}))
+
+	addCard = (card) =>
+		this.setState(prevState => ({
+			cards: [...prevState.cards, card] 
 		}))
 
 	render() {
@@ -64,6 +70,8 @@ class DeckContainer extends React.Component {
 
 					}
 				</div>
+				<FlashCardEditorComponent
+					addCard={this.addCard}/>
 			</div>
 		)
 	}
