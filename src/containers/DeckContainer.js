@@ -20,7 +20,7 @@ class DeckContainer extends React.Component {
 					{
 						this.state.cards.map(card =>
 							<FlashCardComponent
-								card={card} />
+								flashcard={card} />
 						)}
 				</div>
 			</div>
