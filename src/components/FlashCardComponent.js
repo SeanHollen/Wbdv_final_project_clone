@@ -25,10 +25,22 @@ export default class FlashCardComponent extends React.Component {
 								this.state.flashcard.english
 							}
 						</h2>
-						<i
-							className="btn btn-primary fa fa-retweet"
-							onClick={() => this.flip()}>
-						</i>
+						<span>
+							{
+								!this.props.editing &&
+								<i
+									className="btn btn-primary fa fa-retweet"
+									onClick={() => this.flip()}>
+								</i>
+							}
+							{
+								this.props.editing &&
+								<i
+									className="btn btn-danger fa fa-trash"
+									onClick={() => this.props.deleteCard(this.state.flashcard._id)}>
+								</i>
+							}
+						</span>
 					</div>
 				</div>
 			</div>
