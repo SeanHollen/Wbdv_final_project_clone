@@ -4,6 +4,8 @@ import HomeComponent from "./HomeComponent";
 import DeckContainer from '../containers/DeckContainer';
 import PrototypeComponent from '../prototype/PrototypeComponent';
 import FlashCardEditorComponent from './FlashCardEditorComponent';
+import LoginComponent from './LoginComponent'; 
+import ProfileComponent from './ProfileComponent'; 
 
 class LearnFrenchComponent extends React.Component {
   render() {
@@ -31,6 +33,14 @@ class LearnFrenchComponent extends React.Component {
           <Route
             path='/editor'
             component={FlashCardEditorComponent}/>
+
+          <Route
+            path='/login'
+            component={LoginComponent} />
+
+          <Route
+            path='/profile'
+            component={ProfileComponent} />
 
         </div>
       </BrowserRouter>
