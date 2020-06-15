@@ -12,7 +12,6 @@ const deleteDeck = (deckId) => {
   return fetch("http://localhost:8080/api/decks/" + deckId, {
     method: 'DELETE'
   })
-    .then(response => response.json())
 }
 
 const updateDeck = (deckId, newDeck) =>
@@ -23,7 +22,6 @@ const updateDeck = (deckId, newDeck) =>
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
 
 const createDeck = (deck) =>
   fetch(`http://localhost:8080/api/decks`, {
@@ -33,7 +31,6 @@ const createDeck = (deck) =>
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
 
 
 export default {

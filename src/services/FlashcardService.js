@@ -12,7 +12,6 @@ const deleteFlashcard = (flashcardId) => {
   return fetch("http://localhost:8080/api/flashcards/" + flashcardId, {
     method: 'DELETE'
   })
-    .then(response => response.json())
 }
 
 const updateFlashcard = (flashcardId, newFlashcard) =>
@@ -23,7 +22,6 @@ const updateFlashcard = (flashcardId, newFlashcard) =>
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
 
 const createFlashcard = (deckId, flashcard) =>
   fetch(`http://localhost:8080/api/decks/${deckId}/flashcards`, {
@@ -33,7 +31,6 @@ const createFlashcard = (deckId, flashcard) =>
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
 
 
 export default {

@@ -21,8 +21,7 @@ export default class FlashCardEditorComponent extends React.Component {
 	create() {
 		const card = {
 			english: this.state.search,
-			french: this.state.result,
-			_id: Math.floor(Math.random() * 301)
+			french: this.state.result
 		}
 		this.props.addCard(card)
 		this.props.setCreating(false)

@@ -3,6 +3,7 @@ import FlashCardComponent from "../components/FlashCardComponent";
 import FlashCardEditorComponent from "../components/FlashCardEditorComponent";
 import DeckService from "../services/DeckService";
 import {Link} from "react-router-dom";
+import FlashcardService from "../services/FlashcardService";
 
 class DeckContainer extends React.Component {
 
@@ -40,10 +41,13 @@ class DeckContainer extends React.Component {
 			cards: prevState.cards.filter(card => card.id !== id)
 		}))
 
-	addCard = (card) =>
+	addCard = (card) => {
+		FlashcardService.createFlashcard(this.props.match.params.deckId, card)
 		this.setState(prevState => ({
 			cards: [...prevState.cards, card]
 		}))
+	}
+
 
 	render() {
 
