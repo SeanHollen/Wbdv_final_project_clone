@@ -36,10 +36,12 @@ class DeckContainer extends React.Component {
 	setCreating = (creating) =>
 		this.setState({ creating: creating })
 
-	deleteCard = (id) =>
+	deleteCard = (id) => {
+		FlashcardService.deleteFlashcard(id)
 		this.setState(prevState => ({
 			cards: prevState.cards.filter(card => card.id !== id)
 		}))
+	}
 
 	addCard = (card) => {
 		FlashcardService.createFlashcard(this.props.match.params.deckId, card)

@@ -42,7 +42,7 @@ export default class FlashCardComponent extends React.Component {
 								this.props.editing &&
 								<i
 									className="btn btn-danger fa fa-trash"
-									onClick={() => this.props.deleteCard(this.state.flashcard._id)}>
+									onClick={() => this.props.deleteCard(this.state.flashcard.id)}>
 								</i>
 							}
 						</span>
