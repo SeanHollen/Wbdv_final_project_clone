@@ -5,10 +5,27 @@ import {Link} from "react-router-dom";
 class DeckListComponent extends React.Component {
 
 	state = {
-		decks: []
+		decks: [],
+		newName: ""
 	}
 
 	componentDidMount() {
+		DeckService.findAllDecks().then(
+			decks => {
+				this.setState({
+					decks: decks
+				})
+				console.log(this.state.decks)
+			}
+		)
+	}
+
+	createDeck = () => {
+		const deck = {
+			name: this.state.newName,
+			flashcards: []
+		}
+		DeckService.createDeck(deck)
 		DeckService.findAllDecks().then(
 			decks => {
 				this.setState({
@@ -32,6 +49,20 @@ class DeckListComponent extends React.Component {
 							</Link>
 						</li>)
 					}
+					<li className="list-group-item text-center">
+						<div className="input-group">
+							<input type="text" className="form-control" placeholder="New Deck" onChange={(e) => {
+									const newTitle = e.target.value
+									this.setState(() => ({
+										newName: newTitle
+									}))
+								}} value={this.state.newName} />
+							<a role="button" className="btn btn-primary text-white" onClick={() => this.createDeck()}>
+								<i className="fa fa-plus"></i>
+							</a>
+						</div>
+
+					</li>
 
 				</ul>
 			</div>

@@ -8,7 +8,7 @@ import FlashcardService from "../services/FlashcardService";
 class DeckContainer extends React.Component {
 
 	state = {
-		name: "Col",
+		name: "",
 		cards: [],
 		editing: false,
 		creating: false
@@ -38,9 +38,11 @@ class DeckContainer extends React.Component {
 
 	deleteCard = (id) => {
 		FlashcardService.deleteFlashcard(id)
-		this.setState(prevState => ({
-			cards: prevState.cards.filter(card => card.id !== id)
-		}))
+		DeckService.findDeckById(this.props.match.params.deckId).then(deck => {
+				this.setName(deck.name)
+				this.setCards(deck.flashcards)
+			}
+		)
 	}
 
 	addCard = (card) => {
@@ -48,6 +50,10 @@ class DeckContainer extends React.Component {
 		this.setState(prevState => ({
 			cards: [...prevState.cards, card]
 		}))
+	}
+
+	deleteDeck = () => {
+		DeckService.deleteDeck(this.props.match.params.deckId)
 	}
 
 
@@ -70,14 +76,25 @@ class DeckContainer extends React.Component {
 						}
 						{
 							this.state.editing &&
-							<i
-								className="btn btn-primary fa fa-check"
-								onClick={() => {
-									this.setEditing(false)
-									this.setCreating(false)
-								}}>
-								Done
-						</i>
+							<div className="row">
+								<i
+									className="btn btn-primary fa fa-check"
+									onClick={() => {
+										this.setEditing(false)
+										this.setCreating(false)
+									}}>
+									Done
+								</i>
+								<Link to={'/decks'}>
+									<i
+										className="btn btn-danger fa fa-trash"
+										onClick={() => {
+										this.deleteDeck()
+										}}>
+										Delete Deck
+									</i>
+								</Link>
+							</div>
 						}
 					</div>
 				}
