@@ -5,8 +5,8 @@ const HomeComponent = () =>
   <div>
     <div className="list-group">
       <br /><h3>Learn French Home</h3>
-      <Link className="list-group-item" to='/deck'>
-        Deck
+      <Link className="list-group-item" to='/decks'>
+        Decks
       </Link>
       <Link className="list-group-item" to='/prototype'>
         Prototype

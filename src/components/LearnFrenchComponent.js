@@ -5,7 +5,8 @@ import DeckContainer from '../containers/DeckContainer';
 import PrototypeComponent from '../prototype/PrototypeComponent';
 import FlashCardEditorComponent from './FlashCardEditorComponent';
 import LoginComponent from './LoginComponent'; 
-import ProfileComponent from './ProfileComponent'; 
+import ProfileComponent from './ProfileComponent';
+import DeckListComponent from './DeckListComponent'
 
 class LearnFrenchComponent extends React.Component {
   render() {
@@ -21,7 +22,12 @@ class LearnFrenchComponent extends React.Component {
           />
 
           <Route
-            path='/deck'
+            path='/decks'
+            exact={true}
+            component={DeckListComponent}/>
+
+          <Route
+            path='/decks/:deckId'
             exact={true}
             component={DeckContainer}/>
 
