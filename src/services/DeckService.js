@@ -3,6 +3,11 @@ const findAllDecks = () => {
     .then(response => response.json())
 }
 
+const findDeckById = (deckId) => {
+  return fetch(`http://localhost:8080/api/decks/${deckId}`)
+    .then(response => response.json())
+}
+
 const deleteDeck = (deckId) => {
   return fetch("http://localhost:8080/api/decks/" + deckId, {
     method: 'DELETE'
@@ -36,4 +41,5 @@ export default {
   deleteDeck,
   createDeck,
   updateDeck,
+  findDeckById
 }

@@ -27,7 +27,7 @@ class DeckListComponent extends React.Component {
 					{
 						this.state.decks.map(deck =>
 						<li key={deck.id} className="list-group-item">
-							<Link to={`/decks/${deck.id}/flashcards`}>
+							<Link to={`/decks/${deck.id}`}>
 								{deck.name}
 							</Link>
 						</li>)

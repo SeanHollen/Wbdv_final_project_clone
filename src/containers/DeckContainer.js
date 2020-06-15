@@ -1,18 +1,33 @@
 import React from "react";
 import FlashCardComponent from "../components/FlashCardComponent";
 import FlashCardEditorComponent from "../components/FlashCardEditorComponent";
+import DeckService from "../services/DeckService";
+import {Link} from "react-router-dom";
 
 class DeckContainer extends React.Component {
 
 	state = {
-		name: "Colors",
-		cards: [
-			{ english: 'blue', french: 'bleu', _id: 123 },
-			{ english: 'red', french: 'rouge', _id: 234 }
-		],
+		name: "Col",
+		cards: [],
 		editing: false,
 		creating: false
 	}
+
+	componentDidMount() {
+		DeckService.findDeckById(this.props.match.params.deckId).then(deck => {
+			this.setName(deck.name)
+			console.log(deck.flashcards)
+			this.setCards(deck.flashcards)
+			console.log(this.state)
+			}
+		)
+	}
+
+	setName = (name) =>
+		this.setState({name: name})
+
+	setCards = (cards) =>
+		this.setState({cards: cards})
 
 	setEditing = (editing) =>
 		this.setState({ editing: editing })
@@ -22,7 +37,7 @@ class DeckContainer extends React.Component {
 
 	deleteCard = (id) =>
 		this.setState(prevState => ({
-			cards: prevState.cards.filter(card => card._id !== id)
+			cards: prevState.cards.filter(card => card.id !== id)
 		}))
 
 	addCard = (card) =>
@@ -37,6 +52,7 @@ class DeckContainer extends React.Component {
 				{
 					!this.state.creating &&
 					<div className="row">
+						<Link to={'/decks'}>Back</Link>
 						<h3>{`Deck: ${this.state.name}`} </h3>
 						{
 							!this.state.editing &&
@@ -66,7 +82,7 @@ class DeckContainer extends React.Component {
 							this.state.cards.map(card =>
 								<FlashCardComponent
 									flashcard={card}
-									key={card._id}
+									key={card.id}
 									editing={this.state.editing}
 									deleteCard={this.deleteCard} />
 							)}
