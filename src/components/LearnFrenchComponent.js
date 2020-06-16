@@ -1,19 +1,36 @@
 import React from 'react'
-import {BrowserRouter, Route} from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import DeckContainer from '../containers/DeckContainer';
 import PrototypeComponent from '../prototype/PrototypeComponent';
 import FlashCardEditorComponent from './FlashCardEditorComponent';
-import LoginComponent from './LoginComponent'; 
+import LoginComponent from './LoginComponent';
 import ProfileComponent from './ProfileComponent';
 import DeckListComponent from './DeckListComponent'
+import RegisterComponent from './RegisterComponent';
+import { Link } from "react-router-dom";
 
 class LearnFrenchComponent extends React.Component {
   render() {
-    return(
+    return (
       <BrowserRouter>
         <div>
-          <h1></h1>
+          <nav class="navbar navbar-dark bg-dark">
+            <div>
+              <a class="navbar-brand">Learn French by Google Translate</a>
+            </div>
+            <div>
+              <Link to='/login'>
+                <button class="btn btn-light">Login</button> 
+              </Link>
+              <Link  to='/register'>
+              <button class="btn btn-light">Register</button>
+              </Link>
+              <Link  to='/profile'>
+              <button class="btn btn-light">Profile</button>
+              </Link>
+            </div>
+          </nav>
 
           <Route
             path='/'
@@ -24,25 +41,29 @@ class LearnFrenchComponent extends React.Component {
           <Route
             path='/decks'
             exact={true}
-            component={DeckListComponent}/>
+            component={DeckListComponent} />
 
           <Route
             path='/decks/:deckId'
             exact={true}
-            component={DeckContainer}/>
+            component={DeckContainer} />
 
           <Route
             path='/prototype'
             exact={true}
-            component={PrototypeComponent}/>
+            component={PrototypeComponent} />
 
           <Route
             path='/editor'
-            component={FlashCardEditorComponent}/>
+            component={FlashCardEditorComponent} />
 
           <Route
             path='/login'
             component={LoginComponent} />
+
+          <Route
+            path='/register'
+            component={RegisterComponent} />
 
           <Route
             path='/profile'

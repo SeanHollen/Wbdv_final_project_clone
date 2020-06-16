@@ -8,7 +8,6 @@ import LearnFrenchComponent from './components/LearnFrenchComponent';
 function App() {
   return (
     <div className="container">
-      <h1>Learn French</h1>
       <LearnFrenchComponent/>
     </div>
   );

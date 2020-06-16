@@ -11,13 +11,6 @@ const HomeComponent = () =>
       <Link className="list-group-item" to='/prototype'>
         Prototype
       </Link>
-      <br /><h3>User</h3>
-      <Link className="list-group-item" to='/login'>
-        Login
-      </Link>
-      <Link className="list-group-item" to='/profile'>
-        Pofile
-      </Link>
       <br /><h3>Lessons</h3>
       <Link className="list-group-item" to='/lesson1'>
         Lesson 1
