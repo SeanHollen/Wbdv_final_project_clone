@@ -15,7 +15,7 @@ class LearnFrenchComponent extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <nav class="navbar navbar-dark bg-dark">
+          <nav class="navbar">
             <div>
               <a class="navbar-brand">Learn French by Google Translate</a>
             </div>
