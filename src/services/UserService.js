@@ -50,10 +50,17 @@ const register = (profile) => {
 	}).then(response => response.json())
 }
 
+const findStudents = () => {
+	return fetch("http://localhost:8080/api/students", {
+		method: 'GET',
+	}).then(response => response.json())
+}
+
 export default {
 	profile,
 	updateProfile,
 	login,
 	logout,
-	register
+	register,
+	findStudents
 }
