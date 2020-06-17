@@ -1,21 +1,21 @@
 const findAllDecks = () => {
-  return fetch("http://localhost:8080/api/decks")
+  return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/decks")
     .then(response => response.json())
 }
 
 const findDeckById = (deckId) => {
-  return fetch(`http://localhost:8080/api/decks/${deckId}`)
+  return fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/decks/${deckId}`)
     .then(response => response.json())
 }
 
 const deleteDeck = (deckId) => {
-  return fetch("http://localhost:8080/api/decks/" + deckId, {
+  return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/decks/" + deckId, {
     method: 'DELETE'
   })
 }
 
 const updateDeck = (deckId, newDeck) =>
-  fetch(`http://localhost:8080/api/decks/${deckId}`, {
+  fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/decks/${deckId}`, {
     method: 'PUT',
     body: JSON.stringify(newDeck),
     headers: {
@@ -24,7 +24,7 @@ const updateDeck = (deckId, newDeck) =>
   })
 
 const createDeck = (deck) =>
-  fetch(`http://localhost:8080/api/decks`, {
+  fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/decks`, {
     method: 'POST',
     body: JSON.stringify(deck),
     headers: {

@@ -1,5 +1,5 @@
 const profile = () => {
-	return fetch("http://localhost:8080/api/profile", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/profile", {
 		method: 'POST',
 		credentials: "include"
 	})
@@ -10,7 +10,7 @@ const profile = () => {
 }
 
 const updateProfile = (profile) => {
-	return fetch("http://localhost:8080/api/profile", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/profile", {
 		body: JSON.stringify(profile),
 		headers: {
 			'content-type': 'application/json'
@@ -22,7 +22,7 @@ const updateProfile = (profile) => {
 }
 
 const login = (creds) => {
-	return fetch("http://localhost:8080/api/login", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/login", {
 		body: JSON.stringify(creds),
 		headers: {
 			'content-type': 'application/json'
@@ -33,14 +33,14 @@ const login = (creds) => {
 }
 
 const logout = () => {
-	return fetch("http://localhost:8080/api/logout", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/logout", {
 		method: 'POST',
 		credentials: "include"
 	})
 }
 
 const register = (profile) => {
-	return fetch("http://localhost:8080/api/register", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/register", {
 		body: JSON.stringify(profile),
 		headers: {
 			'content-type': 'application/json'
@@ -51,7 +51,7 @@ const register = (profile) => {
 }
 
 const findStudents = () => {
-	return fetch("http://localhost:8080/api/students", {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/students", {
 		method: 'GET',
 	}).then(response => response.json())
 }
