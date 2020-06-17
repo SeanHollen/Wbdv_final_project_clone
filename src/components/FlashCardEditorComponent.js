@@ -1,10 +1,12 @@
 import React from "react";
 import translateService from "../services/TranslateService";
+import GetImageService from "../services/GetImageService";
 
 export default class FlashCardEditorComponent extends React.Component {
 	state = {
 		search: "",
-		result: ""
+		result: "", 
+		image: ""
 	}
 
 	doQuery(search) {
@@ -14,6 +16,12 @@ export default class FlashCardEditorComponent extends React.Component {
 				console.log(text)
 				this.setState({ result: text })
 			})
+		// const image = GetImageService.GetImage(search)
+		// 	.then(res => {
+		// 		const image = res.items.image.thumbnailLink;
+		// 		console.log(image); 
+		// 		this.setState({image: image}); 
+		// 	})
 		return text
 
 	}
@@ -21,7 +29,8 @@ export default class FlashCardEditorComponent extends React.Component {
 	create() {
 		const card = {
 			english: this.state.search,
-			french: this.state.result
+			french: this.state.result, 
+			image: this.state.image
 		}
 		this.props.addCard(card)
 		this.props.setCreating(false)
