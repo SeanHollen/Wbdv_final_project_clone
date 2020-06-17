@@ -49,3 +49,11 @@ const register = (profile) => {
 		credentials: "include"
 	}).then(response => response.json())
 }
+
+export default {
+	profile,
+	updateProfile,
+	login,
+	logout,
+	register
+}
