@@ -15,19 +15,19 @@ class LearnFrenchComponent extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <nav class="navbar">
+          <nav className="navbar">
             <div>
-              <a class="navbar-brand">Learn French by Google Translate</a>
+              <a className="navbar-brand">Learn French by Google Translate</a>
             </div>
             <div>
               <Link to='/login'>
-                <button class="btn btn-light">Login</button> 
+                <button className="btn btn-light">Login</button> 
               </Link>
               <Link  to='/register'>
-              <button class="btn btn-light">Register</button>
+              <button className="btn btn-light">Register</button>
               </Link>
               <Link  to='/profile'>
-              <button class="btn btn-light">Profile</button>
+              <button className="btn btn-light">Profile</button>
               </Link>
             </div>
           </nav>
