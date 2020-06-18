@@ -1,13 +1,15 @@
 import React from "react";
 import DeckService from "../services/DeckService";
 import {Link} from "react-router-dom";
+import UserService from "../services/UserService";
 
 class MyDeckListComponent extends React.Component {
 
 	state = {
 		decks: [],
 		newName: "",
-		editingDeck: {}
+		editingDeck: {},
+		userId: ""
 	}
 
 	componentDidMount() {
@@ -17,6 +19,9 @@ class MyDeckListComponent extends React.Component {
 					decks: decks
 				})
 				console.log(this.state.decks)
+				UserService.profile().catch(e => {}).then(user => {
+					this.setState({userId: user.id})
+				})
 			}
 		)
 	}
@@ -26,8 +31,8 @@ class MyDeckListComponent extends React.Component {
 			name: this.state.newName,
 			flashcards: []
 		}
-		DeckService.createDeck(deck)
-		window.location.reload()
+		console.log(this.state.userId)
+		DeckService.createDeck(this.state.userId, deck).then(deck => window.location.reload())
 	}
 
 	save() {

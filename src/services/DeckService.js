@@ -31,8 +31,8 @@ const updateDeck = (deckId, newDeck) =>
 		}
 	})
 
-const createDeck = (deck) =>
-	fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/decks`, {
+const createDeck = (userId, deck) =>
+	fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/users/${userId}/decks`, {
 		method: 'POST',
 		body: JSON.stringify(deck),
 		headers: {
