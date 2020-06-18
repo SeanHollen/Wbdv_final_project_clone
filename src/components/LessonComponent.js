@@ -30,7 +30,10 @@ export default class LoginComponent extends React.Component {
     }
 
     componentDidMount() {
-        // query words from deck 
+        if (this.props.match.params.lessonId == "example") {
+            console.log("is example"); 
+            return
+        }
         console.log("lessonId");
         console.log(FlashcardService.findFlashcardForDeck(this.props.match.params.lessonId)); 
         FlashcardService.findFlashcardForDeck(this.props.match.params.lessonId).then(

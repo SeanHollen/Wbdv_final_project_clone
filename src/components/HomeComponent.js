@@ -40,7 +40,7 @@ class HomeComponent extends React.Component {
           <Link className="list-group-item" to='/profiles'>
             All Users
 					</Link>
-          <Link className="list-group-item" to='/lesson/lesson1'>
+          <Link className="list-group-item" to='/lesson/example'>
             Lesson Example
 					</Link>
         </div>
