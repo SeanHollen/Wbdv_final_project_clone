@@ -1,5 +1,7 @@
 import React from "react";
 import UserService from "../services/UserService";
+import FlashcardService from "../services/FlashcardService";
+import DeckService from "../services/DeckService";
 
 export default class LoginComponent extends React.Component {
 
@@ -29,6 +31,13 @@ export default class LoginComponent extends React.Component {
 
     componentDidMount() {
         // query words from deck 
+        console.log("lessonId");
+        console.log(FlashcardService.findFlashcardForDeck(this.props.match.params.lessonId)); 
+        FlashcardService.findFlashcardForDeck(this.props.match.params.lessonId).then(
+            res => {
+                this.setState({words: res}) 
+            }
+        )
     }
     
     newItem() {
@@ -79,7 +88,7 @@ export default class LoginComponent extends React.Component {
         return <div class="container">
         <p>{this.props.match.params.lessonId}</p>
         <h3>{this.state.words[this.state.currentQuestionNum].english}</h3>
-        {this.getRandomImages(3)}
+        {this.getRandomImages(this.state.words.length)}
         {
             this.state.answered && 
             (this.state.correct && <h3 style={{color: 'green'}}>Correct!</h3> 

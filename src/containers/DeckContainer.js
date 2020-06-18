@@ -2,7 +2,7 @@ import React from "react";
 import FlashCardComponent from "../components/FlashCardComponent";
 import FlashCardEditorComponent from "../components/FlashCardEditorComponent";
 import DeckService from "../services/DeckService";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import FlashcardService from "../services/FlashcardService";
 import UserService from "../services/UserService";
 
@@ -22,23 +22,23 @@ class DeckContainer extends React.Component {
 			console.log(deck.flashcards)
 			this.setCards(deck.flashcards)
 			console.log(this.state)
-			UserService.profile().catch(e => {})
+			UserService.profile().catch(e => { })
 				.then(user => {
 					console.log(user)
 					console.log(deck)
 					if (user && user.id === deck.owner.id) {
-						this.setState({owned: true})
+						this.setState({ owned: true })
 					}
 				})
-			}
+		}
 		)
 	}
 
 	setName = (name) =>
-		this.setState({name: name})
+		this.setState({ name: name })
 
 	setCards = (cards) =>
-		this.setState({cards: cards})
+		this.setState({ cards: cards })
 
 	setEditing = (editing) =>
 		this.setState({ editing: editing })
@@ -49,9 +49,9 @@ class DeckContainer extends React.Component {
 	deleteCard = (id) => {
 		FlashcardService.deleteFlashcard(id)
 		DeckService.findDeckById(this.props.match.params.deckId).then(deck => {
-				this.setName(deck.name)
-				this.setCards(deck.flashcards)
-			}
+			this.setName(deck.name)
+			this.setCards(deck.flashcards)
+		}
 		)
 	}
 
@@ -68,7 +68,7 @@ class DeckContainer extends React.Component {
 
 
 	render() {
-
+		let lessonPath = "/lesson/" + this.props.match.params.deckId; 
 		return (
 			<div>
 				{
@@ -99,7 +99,7 @@ class DeckContainer extends React.Component {
 									<i
 										className="btn btn-danger fa fa-trash"
 										onClick={() => {
-										this.deleteDeck()
+											this.deleteDeck()
 										}}>
 										Delete Deck
 									</i>
@@ -138,7 +138,9 @@ class DeckContainer extends React.Component {
 						addCard={this.addCard}
 						setCreating={this.setCreating} />
 				}
-
+				<br/> <a className="btn btn-primary float-left">
+					<Link className="text-white" to={lessonPath}>
+						Lesson</Link></a>
 			</div>
 		)
 	}
