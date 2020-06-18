@@ -56,11 +56,18 @@ const findStudents = () => {
 	}).then(response => response.json())
 }
 
+const findAllUsers = () => {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/users", {
+		method: 'GET',
+	}).then(response => response.json())
+}
+
 export default {
 	profile,
 	updateProfile,
 	login,
 	logout,
 	register,
-	findStudents
+	findStudents,
+	findAllUsers
 }

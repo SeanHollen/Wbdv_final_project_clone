@@ -19,6 +19,7 @@ class ProfileComponent extends React.Component {
 					this.setState({
 						user: user
 					})
+				console.log(user)
 			})
 	}
 
@@ -50,6 +51,25 @@ class ProfileComponent extends React.Component {
 						</div>
 					</div>
 				}
+				<div className="form-group row">
+					<label htmlFor="name" className="col-sm-2 col-form-label">
+						Name
+					</label>
+					<div className="col-sm-10">
+						<input className="form-control"
+									 id="name" value={this.state.user.name}
+									 onChange={(e) => {
+										 const newName = e.target.value
+										 this.setState(prevState => ({
+											 user: {
+												 ...prevState.user,
+												 name: newName
+											 }
+										 }))
+									 }}
+						/>
+					</div>
+				</div>
 				<div className="form-group row">
 					<label htmlFor="username" className="col-sm-2 col-form-label">
 						Username

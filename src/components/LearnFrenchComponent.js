@@ -12,6 +12,7 @@ import {Link} from "react-router-dom";
 import StudentTableComponent from "./StudentTableComponent";
 import PublicDeckListComponent from "./PublicDeckListComponent";
 import LessonComponent from "./LessonComponent";
+import ProfileListComponent from "./ProfileListComponent";
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -78,11 +79,22 @@ class LearnFrenchComponent extends React.Component {
 
 					<Route
 						path='/profile'
+						exact={true}
 						component={ProfileComponent}/>
 
 					<Route
 						path='/students'
             component={StudentTableComponent}/>
+
+					<Route
+						path='/profiles'
+						exact={true}
+						component={ProfileListComponent}/>
+
+					<Route
+						path='/profile/:profileId'
+						exact={true}
+						component={ProfileListComponent}/>
 
           <Route
 						path='/lesson/:lessonId'
