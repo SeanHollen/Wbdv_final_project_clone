@@ -51,12 +51,24 @@ export default class LoginComponent extends React.Component {
             }
             images.push(image);
         }
-        console.log("images"); 
-        console.log(images)
+
+        let correct = images.slice(0, 1); 
+        let toReplaceIndex = (Math.floor(Math.random() * images.length)); 
+        let toReplace = images[toReplaceIndex];
+        images[toReplaceIndex] = correct; 
+        images[0] = toReplace; 
+
         return <div>
         {
             images.map(image => <button className="btn btn-light" 
-            onClick={() => {}}>
+            onClick={() => {
+                this.setState({answered: true})
+                if (image == this.state.words[this.state.currentQuestionNum].image) {
+                    this.setState({correct: true});
+                } else {
+                    this.setState({correct: false});
+                }
+            }}>
                 <img src={image} style={{'width': '200px', height: '200px', padding: '10px'}} />
                 </button>)
         }
@@ -68,6 +80,11 @@ export default class LoginComponent extends React.Component {
         <p>{this.props.match.params.lessonId}</p>
         <h3>{this.state.words[this.state.currentQuestionNum].english}</h3>
         {this.getRandomImages(3)}
+        {
+            this.state.answered && 
+            (this.state.correct && <h3 style={{color: 'green'}}>Correct!</h3> 
+            || <h3 style={{color: 'red'}}>Try again</h3>)
+        }
         <br/>
         <button className="btn btn-dark" 
         onClick={() => this.newItem()}>
