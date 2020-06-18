@@ -23,6 +23,9 @@ class LearnFrenchComponent extends React.Component {
 							<a className="navbar-brand">Learn French by Google Translate</a>
 						</div>
 						<div>
+							<Link to='/'>
+								<button className="btn btn-light">Home</button>
+							</Link>
 							<Link to='/login'>
 								<button className="btn btn-light">Login</button>
 							</Link>
