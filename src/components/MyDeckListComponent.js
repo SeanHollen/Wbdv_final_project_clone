@@ -2,7 +2,7 @@ import React from "react";
 import DeckService from "../services/DeckService";
 import {Link} from "react-router-dom";
 
-class DeckListComponent extends React.Component {
+class MyDeckListComponent extends React.Component {
 
 	state = {
 		decks: [],
@@ -135,4 +135,4 @@ class DeckListComponent extends React.Component {
 
 }
 
-export default DeckListComponent
+export default MyDeckListComponent

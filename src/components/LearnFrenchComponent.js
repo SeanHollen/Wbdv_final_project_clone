@@ -6,10 +6,11 @@ import PrototypeComponent from '../prototype/PrototypeComponent';
 import FlashCardEditorComponent from './FlashCardEditorComponent';
 import LoginComponent from './LoginComponent';
 import ProfileComponent from './ProfileComponent';
-import DeckListComponent from './DeckListComponent'
+import MyDeckListComponent from './MyDeckListComponent'
 import RegisterComponent from './RegisterComponent';
 import {Link} from "react-router-dom";
 import StudentTableComponent from "./StudentTableComponent";
+import PublicDeckListComponent from "./PublicDeckListComponent";
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -42,7 +43,12 @@ class LearnFrenchComponent extends React.Component {
 					<Route
 						path='/decks'
 						exact={true}
-						component={DeckListComponent}/>
+						component={PublicDeckListComponent}/>
+
+					<Route
+						path='/mydecks'
+						exact={true}
+						component={MyDeckListComponent}/>
 
 					<Route
 						path='/decks/:deckId'

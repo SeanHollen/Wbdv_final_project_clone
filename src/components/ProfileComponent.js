@@ -33,13 +33,14 @@ class ProfileComponent extends React.Component {
 
 
 	render() {
-		return <div class="container">
+		return <div className="container">
 			<form>
 				{
 					this.state.user.role === "TEACHER" &&
 					<Link to={"/students"} className="float-right">View Students</Link>
 				}
-				<h1 style={{'padding-left': '200px'}}>Profile</h1>
+				<Link to={"/mydecks"} className="float-center">View My Decks</Link>
+				<h1 style={{'paddingLeft': '200px'}}>Profile</h1>
 				{
 					this.state.updated &&
 					<div className="form-group row">
@@ -49,30 +50,22 @@ class ProfileComponent extends React.Component {
 						</div>
 					</div>
 				}
-				<div class="form-group row">
-					<label for="username" class="col-sm-2 col-form-label">
+				<div className="form-group row">
+					<label htmlFor="username" className="col-sm-2 col-form-label">
 						Username
 					</label>
-					<div class="col-sm-10">
-						<input readonly class="form-control"
+					<div className="col-sm-10">
+						<input readOnly className="form-control"
 									 id="username" value={this.state.user.username}
-									 onChange={(e) => {
-										 const newUsername = e.target.value
-										 this.setState(prevState => ({
-											 user: {
-												 ...prevState.user,
-												 username: newUsername
-											 }
-										 }))
-									 }}/>
+						/>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="phone" class="col-sm-2 col-form-label">
+				<div className="form-group row">
+					<label htmlFor="phone" className="col-sm-2 col-form-label">
 						Phone
 					</label>
-					<div class="col-sm-10">
-						<input class="form-control" id="phone" value={this.state.user.phone}
+					<div className="col-sm-10">
+						<input className="form-control" id="phone" value={this.state.user.phone}
 									 onChange={(e) => {
 										 const newPhone = e.target.value
 										 this.setState(prevState => ({
@@ -84,12 +77,12 @@ class ProfileComponent extends React.Component {
 									 }}/>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="email" type="email" class="col-sm-2 col-form-label">
+				<div className="form-group row">
+					<label htmlFor="email" type="email" className="col-sm-2 col-form-label">
 						Email
 					</label>
-					<div class="col-sm-10">
-						<input class="form-control" id="email"
+					<div className="col-sm-10">
+						<input className="form-control" id="email"
 									 value={this.state.user.email}
 									 onChange={(e) => {
 										 const newEmail = e.target.value
@@ -102,12 +95,12 @@ class ProfileComponent extends React.Component {
 									 }}/>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="role" class="col-sm-2 col-form-label">
+				<div className="form-group row">
+					<label htmlFor="role" className="col-sm-2 col-form-label">
 						Role
 					</label>
-					<div class="col-sm-10">
-						<select class="form-control" id="role" value={this.state.user.role}
+					<div className="col-sm-10">
+						<select className="form-control" id="role" value={this.state.user.role}
 										onChange={(e) => {
 											const newRole = e.target.value
 											this.setState(prevState => ({
@@ -122,12 +115,12 @@ class ProfileComponent extends React.Component {
 						</select>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="dob" class="col-sm-2 col-form-label">
+				<div className="form-group row">
+					<label htmlFor="dob" className="col-sm-2 col-form-label">
 						Date of Birth
 					</label>
-					<div class="col-sm-10">
-						<input type="date" class="form-control"
+					<div className="col-sm-10">
+						<input type="date" className="form-control"
 									 id="dob" value={this.state.user.dob}
 									 onChange={(e) => {
 										 const newDob = e.target.value
@@ -141,18 +134,18 @@ class ProfileComponent extends React.Component {
 					</div>
 				</div>
 
-				<div class="form-group row">
-					<label for="update" class="col-sm-2 col-form-label"></label>
-					<div class="col-sm-10">
-						<a class="btn btn-primary btn-block form-control text-white"
+				<div className="form-group row">
+					<label htmlFor="update" className="col-sm-2 col-form-label"></label>
+					<div className="col-sm-10">
+						<a className="btn btn-primary btn-block form-control text-white"
 							 id="update" onClick={() => this.update()}>Update
 						</a>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="logout" class="col-sm-2 col-form-label"></label>
-					<div class="col-sm-10">
-						<a class="btn btn-primary btn-block form-control text-white"
+				<div className="form-group row">
+					<label htmlFor="logout" className="col-sm-2 col-form-label"></label>
+					<div className="col-sm-10">
+						<a className="btn btn-primary btn-block form-control text-white"
 							 id="logout" onClick={() => this.logout()}>Log Out
 						</a>
 					</div>
