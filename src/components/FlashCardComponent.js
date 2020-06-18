@@ -29,7 +29,7 @@ export default class FlashCardComponent extends React.Component {
 							{
 								this.state.flashcard.image != null 
 								&& this.state.flashcard.image != "" &&
-								<img style={{ height: '100px', width: '100px' }}
+								<img style={{ height: '150px', width: '150px' }}
 									src={this.state.flashcard.image}></img>
 							}
 						</div>
