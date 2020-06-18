@@ -4,6 +4,7 @@ import FlashCardEditorComponent from "../components/FlashCardEditorComponent";
 import DeckService from "../services/DeckService";
 import {Link} from "react-router-dom";
 import FlashcardService from "../services/FlashcardService";
+import UserService from "../services/UserService";
 
 class DeckContainer extends React.Component {
 
@@ -11,7 +12,8 @@ class DeckContainer extends React.Component {
 		name: "",
 		cards: [],
 		editing: false,
-		creating: false
+		creating: false,
+		owned: false
 	}
 
 	componentDidMount() {
@@ -20,6 +22,14 @@ class DeckContainer extends React.Component {
 			console.log(deck.flashcards)
 			this.setCards(deck.flashcards)
 			console.log(this.state)
+			UserService.profile().catch(e => {})
+				.then(user => {
+					console.log(user)
+					console.log(deck)
+					if (user && user.id === deck.owner.id) {
+						this.setState({owned: true})
+					}
+				})
 			}
 		)
 	}
@@ -63,20 +73,20 @@ class DeckContainer extends React.Component {
 			<div>
 				{
 					!this.state.creating &&
-					<div className="row">
+					<div className="">
 						<Link to={'/decks'}>Back</Link>
 						<h3>{`Deck: ${this.state.name}`} </h3>
 						{
-							!this.state.editing &&
-							<i
-								className="btn btn-primary fa fa-edit"
+							!this.state.editing && this.state.owned &&
+							<a
+								className="btn btn-primary text-white float-right"
 								onClick={() => this.setEditing(true)}>
 								Edit
-						</i>
+							</a>
 						}
 						{
 							this.state.editing &&
-							<div className="row">
+							<div className="row float-right">
 								<i
 									className="btn btn-primary fa fa-check"
 									onClick={() => {
