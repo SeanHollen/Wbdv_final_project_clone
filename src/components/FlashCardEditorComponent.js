@@ -18,7 +18,8 @@ export default class FlashCardEditorComponent extends React.Component {
 			})
 		const image = GetImageService.getImage(search)
 			.then(res => {
-				const image = res.items.image.thumbnailLink;
+				console.log(res);
+				const image = res.items[1].image.thumbnailLink;
 				console.log(image); 
 				this.setState({image: image}); 
 			})
@@ -66,6 +67,19 @@ export default class FlashCardEditorComponent extends React.Component {
 							<h5 className="card-header">Back</h5>
 							<div className="card-body">
 								<h5 className="card-title">{this.state.result}</h5>
+							</div>
+						</div>
+					</div>
+					<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+						<div className="card">
+							<h5 className="card-header">Image</h5>
+							<div className="card-body">
+								<h5 className="card-title">
+								{
+									this.state.image != "" && 
+									<img src={this.state.image} style={{width: '100px', height: '100px'}} />
+								}
+								</h5>
 							</div>
 						</div>
 					</div>
