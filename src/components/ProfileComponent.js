@@ -12,7 +12,7 @@ class ProfileComponent extends React.Component {
 	componentDidMount() {
 		UserService.profile()
 			.catch(e => {
-				this.props.history.push("/")
+				this.props.history.push("/login")
 			})
 			.then(user => {
 				if (user)
