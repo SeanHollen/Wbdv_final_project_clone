@@ -10,6 +10,7 @@ import DeckListComponent from './DeckListComponent'
 import RegisterComponent from './RegisterComponent';
 import {Link} from "react-router-dom";
 import StudentTableComponent from "./StudentTableComponent";
+import LessonComponent from "./LessonComponent"; 
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -40,7 +41,7 @@ class LearnFrenchComponent extends React.Component {
 					/>
 
 					<Route
-						path='/decks'
+						path='/decks' 
 						exact={true}
 						component={DeckListComponent}/>
 
@@ -72,7 +73,11 @@ class LearnFrenchComponent extends React.Component {
 
 					<Route
 						path='/students'
-						component={StudentTableComponent}/>
+            component={StudentTableComponent}/>
+            
+          <Route
+						path='/lesson/:lessonId'
+            component={LessonComponent}/>
 
 				</div>
 			</BrowserRouter>

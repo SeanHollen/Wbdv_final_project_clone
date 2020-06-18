@@ -16,12 +16,12 @@ export default class FlashCardEditorComponent extends React.Component {
 				console.log(text)
 				this.setState({ result: text })
 			})
-		// const image = GetImageService.GetImage(search)
-		// 	.then(res => {
-		// 		const image = res.items.image.thumbnailLink;
-		// 		console.log(image); 
-		// 		this.setState({image: image}); 
-		// 	})
+		const image = GetImageService.getImage(search)
+			.then(res => {
+				const image = res.items.image.thumbnailLink;
+				console.log(image); 
+				this.setState({image: image}); 
+			})
 		return text
 
 	}

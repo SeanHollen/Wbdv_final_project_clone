@@ -10,7 +10,7 @@ const HomeComponent = () =>
       <Link className="list-group-item" to='/prototype'>
         Prototype
       </Link>
-      <Link className="list-group-item" to='/lesson1'>
+      <Link className="list-group-item" to='/lesson/lesson1'>
         Lesson 1: Colors
       </Link>
     </div>
