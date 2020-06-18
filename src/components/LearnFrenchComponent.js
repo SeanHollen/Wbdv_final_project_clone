@@ -11,6 +11,7 @@ import RegisterComponent from './RegisterComponent';
 import {Link} from "react-router-dom";
 import StudentTableComponent from "./StudentTableComponent";
 import PublicDeckListComponent from "./PublicDeckListComponent";
+import LessonComponent from "./LessonComponent";
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -78,7 +79,11 @@ class LearnFrenchComponent extends React.Component {
 
 					<Route
 						path='/students'
-						component={StudentTableComponent}/>
+            component={StudentTableComponent}/>
+
+          <Route
+						path='/lesson/:lessonId'
+            component={LessonComponent}/>
 
 				</div>
 			</BrowserRouter>
