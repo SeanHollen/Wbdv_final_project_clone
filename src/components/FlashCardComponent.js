@@ -12,7 +12,7 @@ export default class FlashCardComponent extends React.Component {
 
 	render() {
 		return (
-			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-3">
 				<div className="card">
 					<div className="card-body">
 						<h2 className="card-title">
