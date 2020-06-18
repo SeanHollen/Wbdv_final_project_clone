@@ -11,7 +11,7 @@ class MyDeckListComponent extends React.Component {
 	}
 
 	componentDidMount() {
-		DeckService.findAllDecks().then(
+		DeckService.findMyDecks().then(
 			decks => {
 				this.setState({
 					decks: decks
