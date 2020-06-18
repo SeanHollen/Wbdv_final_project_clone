@@ -6,7 +6,8 @@ class ProfileComponent extends React.Component {
 
 	state = {
 		user: {},
-		updated: false
+        updated: false, 
+        error: false
 	}
 
 	componentDidMount() {
@@ -24,14 +25,22 @@ class ProfileComponent extends React.Component {
 	}
 
 	update() {
-		UserService.updateProfile(this.state.user)
+        this.setState({error: false})
+        if (this.state.user.phone.length != 10) {
+            this.setState({error: true})
+            return; 
+        }
+        if (!this.state.user.email.split("").includes("@")) {
+            this.setState({error: true})
+            return; 
+        }
+        UserService.updateProfile(this.state.user)
 		this.setState({updated: true})
 	}
 
 	logout() {
 		UserService.logout().then(response => this.props.history.push("/"))
 	}
-
 
 	render() {
 		return <div className="container">
@@ -50,7 +59,20 @@ class ProfileComponent extends React.Component {
 							Profile Updated
 						</div>
 					</div>
-				}
+                }
+                {
+                    this.state.error &&
+                    <div className="form-group row">
+						<label htmlFor="username" className="col-sm-2"/>
+						<div className="alert alert-danger col-sm-10" role="alert">
+                            Error updating profile. Make sure:
+                            <ul>
+                            <li>Phone number has 10 digits</li>
+                            <li>Email address includes @</li>
+                            </ul>
+						</div>
+                    </div>
+                }
 				<div className="form-group row">
 					<label htmlFor="name" className="col-sm-2 col-form-label">
 						Name
@@ -85,7 +107,7 @@ class ProfileComponent extends React.Component {
 						Phone
 					</label>
 					<div className="col-sm-10">
-						<input className="form-control" id="phone" value={this.state.user.phone}
+						<input type="number" className="form-control" id="phone" value={this.state.user.phone}
 									 onChange={(e) => {
 										 const newPhone = e.target.value
 										 this.setState(prevState => ({
