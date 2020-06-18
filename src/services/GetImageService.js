@@ -6,5 +6,5 @@ const GetImage = (search) => {
 }
 
 export default {
-  getImageService
+  GetImage
 }
