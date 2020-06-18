@@ -8,16 +8,33 @@ export default class LoginComponent extends React.Component {
             {
                 english: "hello", 
                 image: "", 
+            }, 
+            {
+                english: "goodbye", 
+                image: "", 
             }
         ], 
-        status: "correct"
-	}
+        currentQuestionNum: 0, 
+        answered: false,
+        correct: true
+    }
+    
+    increment() {
+        if (this.state.currentQuestionNum < this.state.words.length - 1) {
+            this.setState({currentQuestionNum: this.state.currentQuestionNum + 1}); 
+        } else {
+            this.setState({currentQuestionNum: 0}); 
+        }
+        this.setState({answered: false}); 
+    }
 
 	render() {
         return <div class="container">
-        <h3>{this.props.match.params.lessonId}</h3>
-        
-        <button className="btn btn-dark">Next</button>
+        <p>{this.props.match.params.lessonId}</p>
+        <h3>{this.state.words[this.state.currentQuestionNum].english}</h3>
+        <button className="btn btn-dark" 
+        onClick={() => this.increment()}>
+        Next</button>
         </div>
         
     }
