@@ -34,6 +34,9 @@ class HomeComponent extends React.Component {
 								My Decks
 							</Link>
 					}
+					<Link className="list-group-item" to='/search'>
+						Search For Decks
+					</Link>
 					<Link className="list-group-item" to='/profiles'>
 						All Users
 					</Link>
