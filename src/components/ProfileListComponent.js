@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 class ProfileListComponent extends React.Component{
 	state = {
 		users: [],
-		selectedUser: {}
 	}
 
 	componentDidMount() {
@@ -23,16 +22,13 @@ class ProfileListComponent extends React.Component{
 						this.state.users.map(user =>
 							<div key={user.id}>
 								{
-									this.state.selectedUser.id !== user.id &&
-									<Link to={`/profile/${user.id}`} className="list-group-item"
-											onClick={() =>{
-												this.setState({selectedUser: user})
-											}}>
+									this.props.match.params.profileId != user.id &&
+									<Link to={`/profile/${user.id}`} className="list-group-item">
 											{user.name}
 									</Link>
 								}
 								{
-									this.state.selectedUser.id === user.id &&
+									this.props.match.params.profileId == user.id &&
 										<li className="list-group-item active">
 											<div>
 												<a>

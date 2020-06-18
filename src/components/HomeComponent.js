@@ -5,10 +5,10 @@ const HomeComponent = () =>
   <div>
     <div className="list-group">
       <Link className="list-group-item" to='/decks'>
-        Decks
+        Public Decks
       </Link>
-      <Link className="list-group-item" to='/prototype'>
-        Prototype
+      <Link className="list-group-item" to='/profiles'>
+        All Users
       </Link>
       <Link className="list-group-item" to='/lesson/lesson1'>
         Lesson 1: Colors
