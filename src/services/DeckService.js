@@ -40,9 +40,13 @@ const createDeck = (deck) =>
 		}
 	})
 
-const searchKeyword = (keyword) =>
-	fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/search/${keyword}`)
+const searchKeyword = (keyword) => {
+	return fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/search/${keyword}`,{
+		method: 'GET',
+		credentials: "include"
+	})
 		.then(response => response.json())
+}
 
 
 export default {

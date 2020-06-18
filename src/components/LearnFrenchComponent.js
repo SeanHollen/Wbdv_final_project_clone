@@ -13,6 +13,7 @@ import StudentTableComponent from "./StudentTableComponent";
 import PublicDeckListComponent from "./PublicDeckListComponent";
 import LessonComponent from "./LessonComponent";
 import ProfileListComponent from "./ProfileListComponent";
+import SearchComponent from "./SearchComponent";
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -99,6 +100,21 @@ class LearnFrenchComponent extends React.Component {
           <Route
 						path='/lesson/:lessonId'
             component={LessonComponent}/>
+
+					<Route
+						path='/search/:keyword'
+						exact={true}
+						component={SearchComponent}/>
+
+					<Route
+						path='/search'
+						exact={true}
+						component={SearchComponent}/>
+
+					<Route
+						path='/details/:deckId'
+						exact={true}
+						component={DeckContainer}/>
 
 				</div>
 			</BrowserRouter>
