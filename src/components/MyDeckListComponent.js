@@ -27,15 +27,7 @@ class MyDeckListComponent extends React.Component {
 			flashcards: []
 		}
 		DeckService.createDeck(deck)
-		DeckService.findAllDecks().then(
-			decks => {
-				this.setState({
-					decks: decks
-				})
-				console.log(this.state.decks)
-				window.location.reload();
-			}
-		)
+		window.location.reload()
 	}
 
 	save() {
@@ -43,29 +35,11 @@ class MyDeckListComponent extends React.Component {
 			.then(() => {
 				this.setState({editingDeck: {}})
 			})
-		DeckService.findAllDecks().then(
-			decks => {
-				this.setState({
-					decks: decks
-				})
-				console.log(this.state.decks)
-				window.location.reload();
-			}
-		)
 		window.location.reload()
 	}
 
 	delete() {
 		DeckService.deleteDeck(this.state.editingDeck.id)
-		DeckService.findAllDecks().then(
-			decks => {
-				this.setState({
-					decks: decks
-				})
-				console.log(this.state.decks)
-				window.location.reload();
-			}
-		)
 		window.location.reload()
 	}
 
