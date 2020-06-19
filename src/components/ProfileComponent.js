@@ -25,7 +25,11 @@ class ProfileComponent extends React.Component {
 	}
 
 	update() {
-		this.setState({error: false})
+        this.setState({error: false})
+        if (this.state.user.phone == "" || this.state.user.email == "") {
+            this.setState({error: true})
+			return;
+        }
 		if (this.state.user.phone.length != 10) {
 			this.setState({error: true})
 			return;
