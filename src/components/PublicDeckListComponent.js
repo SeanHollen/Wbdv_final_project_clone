@@ -26,7 +26,7 @@ class PublicDeckListComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h4>Decks {this.state.decks.length}</h4>
+				<h4>Decks</h4>
 				<ul className="list-group">
 					{
 						this.state.decks.map(deck =>

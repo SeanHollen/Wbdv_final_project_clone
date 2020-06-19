@@ -74,7 +74,6 @@ class DeckContainer extends React.Component {
 				{
 					!this.state.creating &&
 					<div className="">
-						<Link to={'/decks'}>Back</Link>
 						<h3>{`Deck: ${this.state.name}`} </h3>
 						{
 							!this.state.editing && this.state.owned &&

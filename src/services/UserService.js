@@ -21,6 +21,18 @@ const updateProfile = (profile) => {
 		.then(response => response.json())
 }
 
+const updateStudentProfile = (profile) => {
+	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/students", {
+		body: JSON.stringify(profile),
+		headers: {
+			'content-type': 'application/json'
+		},
+		method: 'PUT',
+		credentials: "include"
+	})
+		.then(response => response.json())
+}
+
 const login = (creds) => {
 	return fetch("https://cs4550-final-project-kdsh.herokuapp.com/api/login", {
 		body: JSON.stringify(creds),
@@ -85,5 +97,6 @@ export default {
 	findStudents,
 	findAllUsers,
 	follow,
-	following
+	following,
+	updateStudentProfile
 }

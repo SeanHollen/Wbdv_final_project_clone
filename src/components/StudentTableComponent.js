@@ -25,7 +25,7 @@ class StudentTableComponent extends React.Component {
 	}
 
 	updateStudent() {
-		UserService.updateProfile(this.state.editingStudent)
+		UserService.updateStudentProfile(this.state.editingStudent)
 		window.location.reload()
 	}
 
@@ -36,7 +36,7 @@ class StudentTableComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Student {this.state.students.length}</h1>
+				<h1>Student</h1>
 				<table className="table table-striped">
 					<thead>
 					<tr>
