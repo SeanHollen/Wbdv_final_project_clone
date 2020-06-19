@@ -15,6 +15,14 @@ export default class FlashCardComponent extends React.Component {
 			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-3">
 				<div className="card">
 					<div className="card-body">
+						{
+							!this.state.flipped &&
+							<h7 className="card-subtitle mb-2 text-muted">French</h7>
+						}
+						{
+							this.state.flipped &&
+							<h7 className="card-subtitle mb-2 text-muted">English</h7>
+						}
 						<h2 className="card-title">
 							{
 								!this.state.flipped &&
