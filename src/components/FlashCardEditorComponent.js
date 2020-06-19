@@ -42,21 +42,24 @@ export default class FlashCardEditorComponent extends React.Component {
 			<div>
 				<h2>Create New Card</h2>
 				<h5>Search for translation</h5>
-				<input className="" type="text"
-					onChange={(event) => this.setState({
-						search: event.target.value
-					})}></input>
-				<button
-					onClick={
-						() => this.doQuery(this.state.search)}>
-					Translate
-        </button>
+				<div className="form-inline">
+					<input className="form-control" type="text" placeholder="English word"
+								 onChange={(event) => this.setState({
+									 search: event.target.value
+								 })}></input>
+					<a className="btn btn-primary text-white"
+						 onClick={
+							 () => this.doQuery(this.state.search)}>
+						Translate
+					</a>
+				</div>
+				<br/>
 				<h5>Preview of Flashcard</h5>
 
 				<div className="row">
 					<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
 						<div className="card">
-							<h5 className="card-header">Front</h5>
+							<h5 className="card-header">English</h5>
 							<div className="card-body">
 								<h5 className="card-title">{this.state.search}</h5>
 							</div>
@@ -64,7 +67,7 @@ export default class FlashCardEditorComponent extends React.Component {
 					</div>
 					<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
 						<div className="card">
-							<h5 className="card-header">Back</h5>
+							<h5 className="card-header">French</h5>
 							<div className="card-body">
 								<h5 className="card-title">{this.state.result}</h5>
 							</div>
@@ -84,11 +87,11 @@ export default class FlashCardEditorComponent extends React.Component {
 						</div>
 					</div>
 
-					<button
+					<a className="btn btn-primary text-white"
 						onClick={
 							() => this.create()}>
 						Create
-        	</button>
+        	</a>
 				</div>
 
 			</div>

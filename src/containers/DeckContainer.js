@@ -74,7 +74,7 @@ class DeckContainer extends React.Component {
 
 
 	render() {
-
+		let lessonPath = "/lesson/" + this.props.match.params.deckId;
 		return (
 			<div>
 				{
@@ -143,7 +143,10 @@ class DeckContainer extends React.Component {
 						addCard={this.addCard}
 						setCreating={this.setCreating} />
 				}
-
+				<br/>
+				<a className="btn btn-primary float-left">
+				<Link className="text-white" to={lessonPath}>
+					Lesson</Link></a>
 			</div>
 		)
 	}
