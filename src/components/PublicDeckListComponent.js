@@ -1,11 +1,13 @@
 import React from "react";
 import DeckService from "../services/DeckService";
 import {Link} from "react-router-dom";
+import UserService from "../services/UserService";
 
 class PublicDeckListComponent extends React.Component {
 
 	state = {
 		decks: [],
+		loggedIn: false
 	}
 
 	componentDidMount() {
@@ -15,6 +17,11 @@ class PublicDeckListComponent extends React.Component {
 					decks: decks
 				})
 				console.log(this.state.decks)
+				UserService.profile().catch(e => {}).then(user => {
+					if (user) {
+						this.setState({loggedIn: true})
+					}
+				})
 			}
 		)
 	}
@@ -34,8 +41,11 @@ class PublicDeckListComponent extends React.Component {
 								<Link to={`/decks/${deck.id}`}>
 									{deck.name}
 								</Link>
-								<a className="btn btn-primary float-right text-white"
-									 onClick={() => this.addToMyDeck(deck)}>Add to My Decks</a>
+								{
+									this.state.loggedIn &&
+									<Link to={`/mydecks`} className="btn btn-primary float-right text-white"
+										 onClick={() => this.addToMyDeck(deck)}>Add to My Decks</Link>
+								}
 							</li>)
 					}
 				</ul>
