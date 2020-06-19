@@ -14,6 +14,7 @@ import PublicDeckListComponent from "./PublicDeckListComponent";
 import LessonComponent from "./LessonComponent";
 import ProfileListComponent from "./ProfileListComponent";
 import SearchComponent from "./SearchComponent";
+import FollowingComponent from "./FollowingComponent"; 
 
 class LearnFrenchComponent extends React.Component {
 	render() {
@@ -39,6 +40,9 @@ class LearnFrenchComponent extends React.Component {
 							</Link>
 							<Link to='/profile'>
 								<button className="btn btn-light">Profile</button>
+              </Link>
+              <Link to='/following'>
+								<button className="btn btn-light">Following</button>
 							</Link>
 						</div>
 					</nav>
@@ -84,7 +88,12 @@ class LearnFrenchComponent extends React.Component {
 					<Route
 						path='/profile'
 						exact={true}
-						component={ProfileComponent}/>
+            component={ProfileComponent}/>
+            
+          <Route
+						path='/following'
+						exact={true}
+						component={FollowingComponent}/>
 
 					<Route
 						path='/students'
