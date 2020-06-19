@@ -19,7 +19,10 @@ class LearnFrenchComponent extends React.Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div>
+        <div>
+        <br></br>
+          <img style={{height: '50px', width: '900px', 'marginLeft': 'auto', 'marginRight': 'auto', display: 'block'}}
+          src="https://alexoloughlinintensestudy.files.wordpress.com/2015/11/french-flag-banner.jpg?w=848"></img>
 					<nav className="navbar">
 						<div>
 							<a className="navbar-brand">Learn French by Google Translate</a>

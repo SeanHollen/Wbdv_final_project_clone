@@ -1,6 +1,6 @@
 import React from "react";
 import DeckService from "../services/DeckService";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserService from "../services/UserService";
 
 class MyDeckListComponent extends React.Component {
@@ -19,8 +19,8 @@ class MyDeckListComponent extends React.Component {
 					decks: decks
 				})
 				console.log(this.state.decks)
-				UserService.profile().catch(e => {}).then(user => {
-					this.setState({userId: user.id})
+				UserService.profile().catch(e => { }).then(user => {
+					this.setState({ userId: user.id })
 				})
 			}
 		)
@@ -39,7 +39,7 @@ class MyDeckListComponent extends React.Component {
 	save() {
 		DeckService.updateDeck(this.state.editingDeck.id, this.state.editingDeck)
 			.then(() => {
-				this.setState({editingDeck: {}})
+				this.setState({ editingDeck: {} })
 			})
 		window.location.reload()
 	}
@@ -62,20 +62,20 @@ class MyDeckListComponent extends React.Component {
 									this.state.editingDeck.id === deck.id &&
 									<span className="form-inline">
 										<input className="form-control" value={this.state.editingDeck.name}
-													 onChange={(e) => {
-														 const newTitle = e.target.value
-														 this.setState(prevState => ({
-															 editingDeck: {
-																 ...prevState.editingDeck,
-																 name: newTitle
-															 }
-														 }))
-													 }}
+											onChange={(e) => {
+												const newTitle = e.target.value
+												this.setState(prevState => ({
+													editingDeck: {
+														...prevState.editingDeck,
+														name: newTitle
+													}
+												}))
+											}}
 										/>
 										<a className="btn btn-success text-white float-right"
-											 onClick={() => this.save()}>Save</a>
+											onClick={() => this.save()}>Save</a>
 										<a className="btn btn-danger text-white float-right"
-											 onClick={() => this.delete()}>Delete</a>
+											onClick={() => this.delete()}>Delete</a>
 									</span>
 								}
 								{
@@ -85,7 +85,7 @@ class MyDeckListComponent extends React.Component {
 											{deck.name}
 										</Link>
 										<a className="btn btn-primary text-white float-right"
-											 onClick={() => this.setState({editingDeck: deck})}>Edit</a>
+											onClick={() => this.setState({ editingDeck: deck })}>Edit</a>
 									</span>
 
 								}
@@ -99,7 +99,7 @@ class MyDeckListComponent extends React.Component {
 								this.setState(() => ({
 									newName: newTitle
 								}))
-							}} value={this.state.newName}/>
+							}} value={this.state.newName} />
 							<a role="button" className="btn btn-primary text-white" onClick={() => this.createDeck()}>
 								<i className="fa fa-plus"></i>
 							</a>

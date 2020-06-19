@@ -26,11 +26,8 @@ class DeckContainer extends React.Component {
 				.then(user => {
 					console.log(user)
 					console.log(deck)
-					if (user) {
-						for (const [index, value] of deck.owner.entries()) {
-							if (value.id === user.id)
-								this.setState({owned: true})
-						}
+					if (user && user.id === deck.owner.id) {
+						this.setState({owned: true})
 					}
 				})
 			}

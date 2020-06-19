@@ -12,7 +12,7 @@ export default class FlashCardComponent extends React.Component {
 
 	render() {
 		return (
-			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+			<div className="col-7 col-sm-5 col-md-4 col-lg-3 col-xl-3">
 				<div className="card">
 					<div className="card-body">
 						<h2 className="card-title">
@@ -24,11 +24,15 @@ export default class FlashCardComponent extends React.Component {
 								this.state.flipped &&
 								this.state.flashcard.english
 							}
-							{
-								this.state.flashcard.image &&
-								<img src={this.state.flashcard.image} style={{width: '100px', height: '100px'}} />
-							}
 						</h2>
+						<div className="img">
+							{
+								this.state.flashcard.image != null 
+								&& this.state.flashcard.image != "" &&
+								<img style={{ height: '150px', width: '150px' }}
+									src={this.state.flashcard.image}></img>
+							}
+						</div>
 						<span>
 							{
 								!this.props.editing &&

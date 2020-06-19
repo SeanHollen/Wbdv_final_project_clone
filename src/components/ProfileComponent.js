@@ -6,8 +6,7 @@ class ProfileComponent extends React.Component {
 
 	state = {
 		user: {},
-		updated: false,
-		following: []
+		updated: false
 	}
 
 	componentDidMount() {
@@ -21,10 +20,6 @@ class ProfileComponent extends React.Component {
 						user: user
 					})
 				console.log(user)
-				// UserService.following().then(following => {
-				// 	console.log(following)
-				// 	this.setState({following: following})
-				// })
 			})
 	}
 
@@ -176,21 +171,6 @@ class ProfileComponent extends React.Component {
 					</div>
 				</div>
 			</form>
-			<br/>
-			<br/>
-			<h2>Following</h2>
-			<ul>
-				{
-					this.state.following.map(user => {
-						return (
-							<li>
-								{user.name}
-							</li>
-							)
-					})
-				}
-
-			</ul>
 		</div>
 	}
 }
