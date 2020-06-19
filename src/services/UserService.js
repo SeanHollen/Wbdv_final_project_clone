@@ -62,6 +62,20 @@ const findAllUsers = () => {
 	}).then(response => response.json())
 }
 
+const follow = (uid) => {
+	return fetch(	`https://cs4550-final-project-kdsh.herokuapp.com/api/users/${uid}`, {
+		method: 'POST',
+		credentials: "include"
+	})
+}
+
+const following = () => {
+	return fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/following`, {
+		method: 'POST',
+		credentials: "include"
+	}).then(response => response.json())
+}
+
 export default {
 	profile,
 	updateProfile,
@@ -69,5 +83,7 @@ export default {
 	logout,
 	register,
 	findStudents,
-	findAllUsers
+	findAllUsers,
+	follow,
+	following
 }

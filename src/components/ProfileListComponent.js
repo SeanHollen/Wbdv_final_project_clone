@@ -5,12 +5,22 @@ import {Link} from "react-router-dom";
 class ProfileListComponent extends React.Component{
 	state = {
 		users: [],
+		currentUser: {}
 	}
 
 	componentDidMount() {
 		UserService.findAllUsers().then(users => {
 			this.setState({users: users})
+			UserService.profile().catch(e => {})
+				.then(user => {
+					if (user)
+						this.setState({currentUser: user})
+				})
 		})
+	}
+
+	follow(user) {
+		UserService.follow(user.id)
 	}
 
 	render() {
@@ -30,6 +40,12 @@ class ProfileListComponent extends React.Component{
 								{
 									this.props.match.params.profileId == user.id &&
 										<li className="list-group-item active">
+											{
+												this.state.currentUser &&
+												<a className="btn btn-light text-black-50 float-right" onClick={() => this.follow(user)}>
+													Follow
+												</a>
+											}
 											<div>
 												<a>
 													{user.name}

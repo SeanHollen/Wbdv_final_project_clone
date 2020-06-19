@@ -48,6 +48,12 @@ const searchKeyword = (keyword) => {
 		.then(response => response.json())
 }
 
+const addToMyDecks = (did) =>
+	fetch(`https://cs4550-final-project-kdsh.herokuapp.com/api/mydecks/${did}`, {
+		method: 'POST',
+		credentials: "include"
+	})
+
 
 export default {
 	findAllDecks,
@@ -56,5 +62,6 @@ export default {
 	updateDeck,
 	findDeckById,
 	findMyDecks,
-	searchKeyword
+	searchKeyword,
+	addToMyDecks
 }

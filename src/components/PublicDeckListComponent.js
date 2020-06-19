@@ -19,6 +19,10 @@ class PublicDeckListComponent extends React.Component {
 		)
 	}
 
+	addToMyDeck(deck) {
+		DeckService.addToMyDecks(deck.id)
+	}
+
 	render() {
 		return (
 			<div>
@@ -30,6 +34,8 @@ class PublicDeckListComponent extends React.Component {
 								<Link to={`/decks/${deck.id}`}>
 									{deck.name}
 								</Link>
+								<a className="btn btn-primary float-right text-white"
+									 onClick={() => this.addToMyDeck(deck)}>Add to My Decks</a>
 							</li>)
 					}
 				</ul>

@@ -29,7 +29,8 @@ class MyDeckListComponent extends React.Component {
 	createDeck = () => {
 		const deck = {
 			name: this.state.newName,
-			flashcards: []
+			flashcards: [],
+			owners: []
 		}
 		console.log(this.state.userId)
 		DeckService.createDeck(this.state.userId, deck).then(deck => window.location.reload())
