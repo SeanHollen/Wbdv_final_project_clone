@@ -1,4 +1,23 @@
-# cs4550-kaylindevchand-seanhollen-final-project
+# Learn French through Google Translate
+
+## Build Locally
+
+Clone repo.
+```
+git clone https://github.com/kaylindevchand/cs4550-kaylindevchand-seanhollen-final-project.git 
+```
+Install packages.
+```
+npm install
+```
+Start application.
+```
+npm start
+```
+Open browswer to http://localhost:3000/
+
+## Project Description
+
 
 Project Description: https://docs.google.com/document/d/1EQvXDNbjcvZ2WQ3u75Oawy8u6oLVJyL3waVuFkfI5rs/edit?usp=sharing
 
