@@ -43,7 +43,7 @@ export default class FlashCardEditorComponent extends React.Component {
 				<h2>Create New Card</h2>
 				<h5>Search for translation</h5>
 				<div className="form-inline">
-					<input className="form-control" type="text"
+					<input className="form-control" type="text" placeholder="English word"
 								 onChange={(event) => this.setState({
 									 search: event.target.value
 								 })}></input>

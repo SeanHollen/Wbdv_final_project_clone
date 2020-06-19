@@ -79,7 +79,7 @@ class ProfileComponent extends React.Component {
 						Name
 					</label>
 					<div className="col-sm-10">
-						<input className="form-control"
+						<input className="form-control" placeholder="name"
 									 id="name" value={this.state.user.name}
 									 onChange={(e) => {
 										 const newName = e.target.value
@@ -108,7 +108,7 @@ class ProfileComponent extends React.Component {
 						Phone
 					</label>
 					<div className="col-sm-10">
-						<input type="number" className="form-control" id="phone" value={this.state.user.phone}
+						<input type="number" placeholder="Phone" className="form-control" id="phone" value={this.state.user.phone}
 									 onChange={(e) => {
 										 const newPhone = e.target.value
 										 this.setState(prevState => ({
@@ -125,7 +125,7 @@ class ProfileComponent extends React.Component {
 						Email
 					</label>
 					<div className="col-sm-10">
-						<input className="form-control" id="email"
+						<input className="form-control" id="email" placeholder="Email"
 									 value={this.state.user.email}
 									 onChange={(e) => {
 										 const newEmail = e.target.value
