@@ -40,6 +40,7 @@ class StudentTableComponent extends React.Component {
 				<table className="table table-striped">
 					<thead>
 					<tr>
+						<th>Name</th>
 						<th>Username</th>
 						<th>Password</th>
 						<th>Email</th>
@@ -53,6 +54,25 @@ class StudentTableComponent extends React.Component {
 						this.state.students.map(student =>
 
 							<tr>
+								<td>
+									{
+										this.state.editingStudent.id !== student.id &&
+										student.name
+									}
+									{
+										this.state.editingStudent.id === student.id &&
+										<input className="form-control" value={this.state.editingStudent.name} placeholder="Name"
+													 onChange={(e) => {
+														 const newName = e.target.value
+														 this.setState(prevState => ({
+															 editingStudent: {
+																 ...prevState.editingStudent,
+																 name: newName
+															 }
+														 }))
+													 }}/>
+									}
+								</td>
 								<td>
 									{
 										this.state.editingStudent.id !== student.id &&
@@ -172,6 +192,18 @@ class StudentTableComponent extends React.Component {
 							</tr>
 						)}
 					<tr>
+						<td>
+							<input className="form-control" value={this.state.newStudent.name} placeholder="Name"
+										 onChange={(e) => {
+											 const newName = e.target.value
+											 this.setState(prevState => ({
+												 newStudent: {
+													 ...prevState.newStudent,
+													 name: newName
+												 }
+											 }))
+										 }}/>
+						</td>
 						<td>
 							<input className="form-control" value={this.state.newStudent.username} placeholder="Username"
 										 onChange={(e) => {
