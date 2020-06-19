@@ -99,7 +99,7 @@ export default class LoginComponent extends React.Component {
 
     render() {
         return <div class="container">
-            <h3>{this.state.words[this.state.currentQuestionNum].english}</h3>
+            <h3>{this.state.words[this.state.currentQuestionNum].french}</h3>
             {this.getRandomImages(this.state.words.length)}
             {
                 this.state.answered &&

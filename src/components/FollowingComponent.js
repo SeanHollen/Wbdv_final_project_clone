@@ -12,6 +12,9 @@ export default class FlashCardEditorComponent extends React.Component {
         UserService.profile().catch(e => {
 		})
 			.then(user => {
+                if (user == null) {
+                    return; 
+                }
                 console.log("user"); 
                 console.log(user.name); 
 				this.setState({user: user.name})
