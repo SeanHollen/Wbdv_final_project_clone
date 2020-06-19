@@ -5,7 +5,7 @@ export default class FlashCardEditorComponent extends React.Component {
 
     state = {
         user: "abc", 
-		following: []
+		    following: []
     }
     
     componentDidMount() {
@@ -19,7 +19,7 @@ export default class FlashCardEditorComponent extends React.Component {
         UserService.following().then(res => {
             console.log("following"); 
             console.log(res); 
-            this.setState({user: res});
+            this.setState({following: res});
         })
     }
 
@@ -27,7 +27,7 @@ export default class FlashCardEditorComponent extends React.Component {
         <h3>Hello {this.state.user}, you are following: </h3>
         {
             this.state.following.map(user =>
-                <div>{user}</div>)
+                <div>{user.name}</div>)
         }
         </div>
     }
